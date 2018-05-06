@@ -1,12 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>TP4 - Inicio</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form id="pageIndex">
+            <h:commandButton value="Ir a punto 1" id="btnUno" action="aPage1" />
+            <h:commandButton value="Ir a punto 2" id="btnDos" action="aPage2" />
+            <p:commandButton value="Ir a punto 3" id="btnTres" action="aPage3" />
+            <p:commandButton value="Ir a punto 4" id="btnCuatro" action="aPage4" />
+            <p:commandButton value="Ir a punto 5" id="btnCinco" action="aPage5" />
+            <p:commandButton value="Ir a punto 6" id="btnSeis" action="aPage6" />
+            <p:commandButton value="Ir a punto 7" id="btnSiete" action="aPage7" />
+            <p:commandButton value="Ir a punto 8" id="btnOcho" action="aPage8" />
+        </h:form>
     </h:body>
 </html>
 
