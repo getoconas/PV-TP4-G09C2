@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="Template/puntoUno.xhtml" x="235" y="11" zoom="true"/>
+        <Node id="Template/puntoDos.xhtml" x="39" y="83" zoom="true"/>
+        <Node id="index.xhtml" x="424" y="142" zoom="true"/>
+        <Node id="Template/puntoCuatro.xhtml" x="220" y="350" zoom="true"/>
+        <Node id="Template/puntoOcho.xhtml" x="710" y="21" zoom="true"/>
+        <Node id="Template/puntoCinco.xhtml" x="593" y="340" zoom="true"/>
+        <Node id="punto7.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="Template/puntoTres.xhtml" x="53" y="257" zoom="true"/>
+        <Node id="Template/puntoSeis.xhtml" x="809" y="268" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

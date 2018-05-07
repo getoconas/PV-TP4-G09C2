@@ -11,6 +11,7 @@ import puntoDos.dominio.Numero;
 @ManagedBean
 @RequestScoped
 public class NumeroManagedBean implements Serializable {
+    
     private Numero numero = new Numero();
     private static ArrayList<Numero> lstNumber = new ArrayList();
     

@@ -30,10 +30,6 @@
             <to-view-id>/Template/puntoSeis.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>aPage7</from-outcome>
-            <to-view-id>/Template/puntoSiete.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>aPage8</from-outcome>
             <to-view-id>/Template/puntoOcho.xhtml</to-view-id>
         </navigation-case>
@@ -75,13 +71,6 @@
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/Template/puntoSeis.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>inicio</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/Template/puntoSiete.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>inicio</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
