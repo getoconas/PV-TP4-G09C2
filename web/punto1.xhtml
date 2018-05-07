@@ -6,26 +6,26 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Aplicacion Temperatura</title>
+        <title>TP4 - Punto 1</title>
     </h:head>
     <h:body>
         <p:panel id="panel1" header="Conversor de temperatura">
             <h:form id="frmConversor">
                 <h:panelGrid id="pnlGrid" columns="2">
-                    <p:outputLabel id="lblTemperatura" value="Grados: "/>
-                    <p:inputNumber id="igrNumber" decimalPlaces="2" thousandSeparator="." decimalSeparator=","
+                    <p:outputLabel id="lblTemperatura" value="Temperatura: "/>
+                    <p:inputNumber id="igrNumber" decimalPlaces="1" thousandSeparator="." decimalSeparator=","
                                    value="#{conversorBean.temperatura}"/>
-                    <p:outputLabel id="lblDe" value="Desde: "/>
+                    <p:outputLabel id="lblDe" value="De: "/>
                     <p:selectOneMenu id="mnuOri" value="#{conversorBean.letraA}">
-                        <f:selectItem itemLabel="-Seleccionar-" itemValue=""/>
+                        <f:selectItem itemLabel="Seleccionar" itemValue=""/>
                         <f:selectItem itemLabel="Fahrenheit" itemValue="F"/>
                         <f:selectItem itemLabel="Kelvin" itemValue="K"/>
                         <f:selectItem itemLabel="Celsius" itemValue="C"/>
                     </p:selectOneMenu>
                     
-                    <p:outputLabel id="lblHt" value="Hasta: "/>
+                    <p:outputLabel id="lblHt" value="A: "/>
                     <p:selectOneMenu id="mnuDes" value="#{conversorBean.letraB}">
-                        <f:selectItem itemLabel="-Seleccionar-" itemValue=""/>
+                        <f:selectItem itemLabel="Seleccionar" itemValue=""/>
                         <f:selectItem itemLabel="Fahrenheit" itemValue="F"/>
                         <f:selectItem itemLabel="Kelvin" itemValue="K"/>
                         <f:selectItem itemLabel="Celsius" itemValue="C"/>
@@ -36,7 +36,7 @@
                     <p:commandButton id="btnConvertir" value="Convertir" update="lblResultado">
                     </p:commandButton>
 
-                    <p:outputLabel id="lblResultado" value="Resultado: #{conversorBean.convertir()}"/>
+                    <p:outputLabel id="lblResultado" value="Resultado: #{conversorBean.convertir()}" />
 
                 </h:panelGrid>
             </h:form>

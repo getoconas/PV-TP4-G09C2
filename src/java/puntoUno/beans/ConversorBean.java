@@ -1,5 +1,6 @@
 package puntoUno.beans;
 
+import java.text.DecimalFormat;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import puntoUno.dominio.ConversorTemperatura;
@@ -49,10 +50,11 @@ public class ConversorBean {
         this.ctemp = ctemp;
     }
     
-    public double convertir() {
+    public String convertir() {
         double resultado = 0;
         ctemp = new ConversorTemperatura();
         ctemp.asignarValor(temperatura);
+        DecimalFormat df = new DecimalFormat("0.0");
         
         if (letraA == 'C' && letraB == 'F') {
             resultado = ctemp.calcularCelsiusaFahrenheit();
@@ -81,6 +83,6 @@ public class ConversorBean {
         if (letraA == 'K' && letraB == 'K') {
             resultado = temperatura;
         }
-        return resultado;
+        return df.format(resultado);
     }
 }
