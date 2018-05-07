@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TP4 - Punto 3</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnl1" header="Calculadora">
+            <h:form id="frm1">
+                <p:panelGrid id="pnlGrid1" columns="2" styleClass="ui-noborder">                    
+                    <p:inputNumber id="intNumber1" decimalPlaces="2" value="#{calculadoraFormBean.numero1}"/>
+                    <p:inputNumber id="intNumber2" decimalPlaces="2" value="#{calculadoraFormBean.numero2}"/>
+                    <p:panelGrid id="panelBotones">
+                        <p:commandButton id="btnSum" value="+" update="lblResSum" /> 
+                        <p:commandButton id="btnRes" value="-" update="lblResRes" /> 
+                        <p:commandButton id="btnMul" value="x" update="lblResMul" />  
+                        <p:commandButton id="btnDiv" value="/" update="lblResDiv" /> 
+                        <p:commandButton id="btnPot" value="^" update="lblResPot" />  
+                    </p:panelGrid>
+                    <p:outputLabel/>
+                    <p:outputLabel id="lblResSum" value="Resultado Suma: #{calculadoraFormBean.sumar()}" />
+                    <p:outputLabel id="lblResRes" value="Resultado Resta: #{calculadoraFormBean.restar()}" />
+                    <p:outputLabel id="lblResMul" value="Resultado Multiplicacion: #{calculadoraFormBean.multiplicar()}" />
+                    <p:outputLabel id="lblResDiv" value="Resultado Division: #{calculadoraFormBean.dividir()}" />
+                    <p:outputLabel id="lblResPot" value="Resultado Potencia: #{calculadoraFormBean.potencia()}" />
+                </p:panelGrid>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>

@@ -11,9 +11,7 @@
         <p:panel id="panel1" header="Listado de Vehiculos">            
             <h:form id="frmAutos">                
                <p:growl id="msg1" showDetail="true"/> 
-               <p:dataTable id="car1" var="auto" value="#{autoManagedBean.lstAuto}" editable="true">                    
-                    <!--<p:ajax event="rowEdit" listener="#{autoManagedBean.onRowEdit}" update=":formularioAutos:msgs" />
-                    <p:ajax event="rowEditCancel" listener="#{autoManagedBean.onRowCancel}" update=":formularioAutos:msgs" />-->
+               <p:dataTable id="car1" var="auto" value="#{autoManagedBean.lstAuto}" editable="true">
                     <p:column headerText="Patente">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{auto.patente}" /></f:facet>
