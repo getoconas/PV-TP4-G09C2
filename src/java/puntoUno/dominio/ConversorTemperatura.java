@@ -23,27 +23,27 @@ public class ConversorTemperatura implements Serializable {
         this.numero = numero;
     }
     
-    public double obtenerCelsiusDeFahrenheit() {
+    public double calcularCelsiusaFahrenheit() {
         return 1.8 * numero + 32;
     }
     
-    public double obtenerCelsiusDeKelvin() {
+    public double calcularCelsiusaKelvin() {
         return numero + 273.15;
     }
     
-    public double obtenerFahrenheitDeCelsius() {
-        return (numero - 32) * (5 / 9);
+    public double calcularFahrenheitaCelsius() {
+        return (numero - 32) * 5 / 9;
     }
     
-    public double obtenerFahrenheitDeKelvin() {
-        return (numero + 459.67) * (5 / 9);
+    public double calcularFahrenheitaKelvin() {
+        return (numero + 459.67) * 5 / 9;
     }
     
-    public double obtenerKelvinDeCelsius() {
+    public double calcularKelvinaCelsius() {
         return numero - 273.15;
     }
     
-    public double obtenerKelvinDeFahrenheit() {
+    public double calcularKevinaFahrenheit() {
         return (numero - 273.15) * 1.8 + 32;
     }
 }

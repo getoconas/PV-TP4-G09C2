@@ -6,10 +6,6 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>aPage1</from-outcome>
-            <to-view-id>/Template/puntoUno.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>aPage2</from-outcome>
             <to-view-id>/Template/puntoDos.xhtml</to-view-id>
         </navigation-case>
@@ -24,17 +20,6 @@
         <navigation-case>
             <from-outcome>aPage5</from-outcome>
             <to-view-id>/Template/puntoCinco.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>aPage6</from-outcome>
-            <to-view-id>/Template/puntoSeis.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/Template/puntoUno.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>inicio</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -60,13 +45,6 @@
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/Template/puntoCinco.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>inicio</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/Template/puntoSeis.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>inicio</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
