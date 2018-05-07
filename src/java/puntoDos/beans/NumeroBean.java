@@ -45,19 +45,19 @@ public class NumeroBean implements Serializable {
     
     public int menorNumero() {
         Iterator<Integer> iteradorNumeros = this.lstNumbers.iterator();
-        int mayor = 0, aux;
+        int menor = 0, aux;
         boolean bandera = false;      
         while (iteradorNumeros.hasNext()) {
             aux = iteradorNumeros.next();
             if (!bandera) {
                 bandera = true;
-                mayor = aux;
+                menor = aux;
             } else {
-                if (aux < mayor) 
-                    mayor = aux;
+                if (aux < menor) 
+                    menor = aux;
             }
         }        
-        return mayor;
+        return menor;
     }
     
     public double promedioNumero() {
