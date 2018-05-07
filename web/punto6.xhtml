@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TP4 - Punto 6</title>
+    </h:head>
+    <h:body>
+        <p:panel id="panel1" header="Listado de Vehiculos">            
+            <h:form id="frmAutos">                
+               <p:growl id="msg1" showDetail="true"/> 
+               <p:dataTable id="car1" var="auto" value="#{autoManagedBean.lstAuto}" editable="true">                    
+                    <!--<p:ajax event="rowEdit" listener="#{autoManagedBean.onRowEdit}" update=":formularioAutos:msgs" />
+                    <p:ajax event="rowEditCancel" listener="#{autoManagedBean.onRowCancel}" update=":formularioAutos:msgs" />-->
+                    <p:column headerText="Patente">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{auto.patente}" /></f:facet>
+                            <f:facet name="input"><p:inputText id="modelInput" value="#{auto.patente}"/></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Marca">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{auto.marca}" /></f:facet>
+                            <f:facet name="input"><p:inputText value="#{auto.marca}" label="Marca"/></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Modelo">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{auto.modelo}" /></f:facet>
+                            <f:facet name="input"><p:inputText value="#{auto.modelo}" label="Modelo"/></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Color">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{auto.color}" /></f:facet>
+                            <f:facet name="input"><p:inputText value="#{auto.color}" label="Color"/></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Tipo de Combustible">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{auto.combustible}" /></f:facet>
+                            <f:facet name="input"><p:inputText value="#{auto.combustible}" label="Tipo de Combustible"/></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column>
+                        <p:rowEditor />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
