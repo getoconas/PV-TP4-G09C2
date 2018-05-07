@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <p:panel id="panel1" header="Libros">
+            <h:form id="frmLibro">
+                <p:panelGrid id="ingLibro" columns="2">
+                    <p:outputLabel value="Ingrese ISBN" />
+                    <p:inputText value="#{libroBean.isbn}" />
+                    <p:outputLabel value="Seleccione Autor" />
+                    <p:selectOneMenu value="#{libroBean.autor}">
+                        <f:selectItem itemLabel="Jorge Luis Borges" itemValue="Jorge Luis Borges" />
+                        <f:selectItem itemLabel="Gabriel García Márquez" itemValue="Gabriel García Márquez" />
+                        <f:selectItem itemLabel="Isabel Allende" itemValue="Isabel Allende" />
+                        <f:selectItem itemLabel="Mark Twain" itemValue="Mark Twain" />
+                        <f:selectItem itemLabel="Franz Kafka" itemValue="Franz Kafka" />
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Ingrese Titulo" />
+                    <p:inputText value="#{libroBean.titulo}" />
+                    <p:outputLabel value="Ingrese Precio" />
+                    <p:inputNumber value="#{libroBean.precio}" decimalPlaces="2" />
+                </p:panelGrid>
+            
+                <p:commandButton id="btnAgregar" value="Agregar" action="#{libroBean.agregarLibro()}" update="tblLibro" />
+                <p:outputLabel></p:outputLabel>
+                
+                <p:outputLabel value="Buscar libro por autor" />
+                <p:inputText value="#{libroBean.autorBuscado}" />
+                <p:commandButton id="btnBuscar" value="Buscar" update="lblBusqueda" />
+                <p:outputLabel value="¿Existe libro del autor?" />
+                <p:outputLabel id="lblBusqueda" value="#{libroBean.buscarAutor()}" />
+                
+                <p:panelGrid id="tblLibro" columns="1">
+                    <p:dataTable var="lbr" value="#{libroBean.lstLibro}" >
+                        <p:column headerText="ISBN">
+                            <h:outputLabel value="#{lbr.isbn}" />
+                        </p:column>
+                        <p:column headerText="Autor">
+                            <h:outputLabel value="#{lbr.autor}" />
+                        </p:column>
+                        <p:column headerText="Titulo">
+                            <h:outputLabel value="#{lbr.titulo}" />
+                        </p:column>
+                        <p:column headerText="Precio">
+                            <h:outputLabel value="#{lbr.precio}" />
+                        </p:column>
+                    </p:dataTable>
+                </p:panelGrid>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
