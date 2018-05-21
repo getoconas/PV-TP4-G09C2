@@ -1,14 +1,14 @@
-package puntoSiete.dominio;
+package p8.aplicacion.modelo.dominio;
 
 import java.io.Serializable;
 
 /**/
 
 public class Libro implements Serializable {
-    private String isbn;
-    private String autor;
-    private String titulo;
-    private double precio;
+    public String isbn;
+    public String autor;
+    public String titulo;
+    public double precio;
     
     public Libro() {
         

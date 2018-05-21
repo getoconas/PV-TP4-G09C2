@@ -1,15 +1,15 @@
-package puntoOcho.beans;
+package p7.aplicacion.controlador.beans.forms;
 
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import puntoOcho.dominio.Libro;
+import p7.aplicacion.modelo.dominio.Libro;
 
 /**/
 
 @ManagedBean
 @ViewScoped
-public class LibroBean {
+public class LibroManagedBean {
     private ArrayList<Libro> lstLibro;
     
     private String isbn;
@@ -17,24 +17,13 @@ public class LibroBean {
     private String titulo;
     private double precio;
     
-    private String autorBuscado;
-    
-    public LibroBean() {
+    public LibroManagedBean() {
         this.lstLibro = new ArrayList<Libro>();
     }
     
     public void agregarLibro() {
         Libro lbr = new Libro(isbn, autor, titulo, precio);
         this.lstLibro.add(lbr);
-    }
-    
-    public boolean buscarAutor() {
-        for (Libro i: this.lstLibro) {
-            if (i.getAutor().compareToIgnoreCase(this.autorBuscado) == 0) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public ArrayList<Libro> getLstLibro() {
@@ -76,12 +65,4 @@ public class LibroBean {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
-    public String getAutorBuscado() {
-        return autorBuscado;
-    }
-
-    public void setAutorBuscado(String autorBuscado) {
-        this.autorBuscado = autorBuscado;
-    }    
 }

@@ -8,18 +8,28 @@
         <title>TP4 - Punto 5</title>
     </h:head>
     <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true" />
         <p:panel id="pnl1" header="Ingreso de Profesor">
             <h:form id="frm1">
                 <p:panelGrid id="pnlGrid1" columns="2" styleClass="ui-noborder">                    
-                    <p:outputLabel value="Ingrese nombre profesor" />
-                    <p:inputText id="iptNombre" value="#{profesorFormBeans.nombreIngresado}"/>
-                    <p:outputLabel value="Ingrese apellido profesor" />
-                    <p:inputText id="iptapellido" value="#{profesorFormBeans.apellidoIngresado}"/>
-                    <p:outputLabel value="Ingrese materia a cargo del profesor" />
-                    <p:inputText id="iptMateria" value="#{profesorFormBeans.materiaIngresada}"/>                    
-                    <p:commandButton id="btnAgregar" onclick="PF('dlg2').show();" value="Cargar Profesor" action="#{profesorFormBeans.agregarProfesor()}" update="lblCantProfesores"/>
+                    <p:outputLabel for="txtNombre" value="Nombre: " />
+                    <p:inputText id="txtNombre" value="#{profesorFormBeans.nombreIngresado}" required="true" 
+                                 requiredMessage="Longitud de nombre no permitido">
+                        <f:validateLength minimum="3" maximum="60" />
+                    </p:inputText>
+                    <p:outputLabel for="txtApellido" value="Apellido: " />
+                    <p:inputText id="txtApellido" value="#{profesorFormBeans.apellidoIngresado}" required="true"
+                                 requiredMessage="Longitud de apellido no permitido">
+                        <f:validateLength minimum="3" maximum="40" />
+                    </p:inputText>
+                    <p:outputLabel for="txtMateria" value="Materia: " />
+                    <p:inputText id="txtMateria" value="#{profesorFormBeans.materiaIngresada}" required="true"
+                                 requiredMessage="Longitud de materia no permitido">
+                        <f:validateLength minimum="3" maximum="30" />
+                    </p:inputText>                    
+                    <p:commandButton id="btnAgregar" onclick="PF('dlg2').show();" value="Cargar Profesor" action="#{profesorFormBeans.agregarProfesor()}" update="growl lblCantProfesores"/>
                     
-                    <p:outputLabel id="lblCantProfesores" value="Profesores cargado: #{profesorFormBeans.cantidadProfesores()}" />
+                    <p:outputLabel id="lblCantProfesores" value="Profesores cargados: #{profesorFormBeans.cantidadProfesores()}" />
                     <p:dataList value="#{profesorFormBeans.listaProfesor}" var="prof" type="ordered">
                     <f:facet name="header">
                         Lista de Profesores

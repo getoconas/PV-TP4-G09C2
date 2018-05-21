@@ -8,26 +8,36 @@
         <title>TP4 - Punto 7</title>
     </h:head>
     <h:body>
-        <p:panel id="panel1" header="Libros">
+        <p:growl id="growl" showDetail="true" sticky="true" />
+        <p:panel id="pnl1" header="Libros">
             <h:form id="frmLibro">
                 <p:panelGrid id="ingLibro" columns="2">
-                    <p:outputLabel value="Ingrese ISBN" />
-                    <p:inputText value="#{libroManagedBean.isbn}" />
-                    <p:outputLabel value="Seleccione Autor" />
-                    <p:selectOneMenu value="#{libroManagedBean.autor}">
+                    <p:outputLabel for="txtISBN" value="Ingrese ISBN" />
+                    <p:inputText id="txtISBN" value="#{libroManagedBean.isbn}" required="true"
+                                 requiredMessage="Longitud de ISBN no permitido">
+                        <f:validateLength minimum="8" maximum="13" />
+                    </p:inputText>
+                    <p:outputLabel for="sctAutor" value="Seleccione Autor" />
+                    <p:selectOneMenu id="sctAutor" value="#{libroManagedBean.autor}" required="true">
                         <f:selectItem itemLabel="Jorge Luis Borges" itemValue="Jorge Luis Borges" />
                         <f:selectItem itemLabel="Gabriel García Márquez" itemValue="Gabriel García Márquez" />
                         <f:selectItem itemLabel="Isabel Allende" itemValue="Isabel Allende" />
                         <f:selectItem itemLabel="Mark Twain" itemValue="Mark Twain" />
                         <f:selectItem itemLabel="Franz Kafka" itemValue="Franz Kafka" />
                     </p:selectOneMenu>
-                    <p:outputLabel value="Ingrese Titulo" />
-                    <p:inputText value="#{libroManagedBean.titulo}" />
-                    <p:outputLabel value="Ingrese Precio" />
-                    <p:inputNumber value="#{libroManagedBean.precio}" decimalPlaces="2" />
+                    <p:outputLabel for="txtTitulo" value="Ingrese Titulo" />
+                    <p:inputText id="txtTitulo" value="#{libroManagedBean.titulo}" required="true"
+                                 requiredMessage="Longitud de titulo no permitido">
+                        <f:validateLength minimum="3" maximum="50" />
+                    </p:inputText>
+                    <p:outputLabel for="nmbPrecio" value="Ingrese Precio" />
+                    <p:inputNumber id="nmbPrecio" value="#{libroManagedBean.precio}" decimalPlaces="2"
+                                   required="true" >
+                        <f:validateDoubleRange minimum="0.01" />
+                    </p:inputNumber>
                 </p:panelGrid>
             
-                <p:commandButton id="btnAgregar" value="Agregar" actionListener="#{libroManagedBean.agregarLibro()}" update="tblLibro"/>
+                <p:commandButton id="btnAgregar" value="Agregar" actionListener="#{libroManagedBean.agregarLibro()}" update="growl tblLibro"/>
 
                 <p:panelGrid id="tblLibro" columns="1">
                     <p:dataTable var="lbr" value="#{libroManagedBean.lstLibro}">

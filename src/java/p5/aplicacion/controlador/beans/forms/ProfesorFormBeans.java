@@ -1,10 +1,10 @@
-package puntoCinco.aplicacion.modelo.beans.forms;
+package p5.aplicacion.controlador.beans.forms;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import puntoCinco.aplicacion.modelo.dominio.Profesor;
+import p5.aplicacion.modelo.dominio.Profesor;
 
 /**/
 

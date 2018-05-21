@@ -1,37 +1,24 @@
-package puntoSiete.beans;
+package p7.aplicacion.modelo.dominio;
 
-import java.util.ArrayList;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import puntoSiete.dominio.Libro;
+import java.io.Serializable;
 
 /**/
 
-@ManagedBean
-@ViewScoped
-public class LibroManagedBean {
-    private ArrayList<Libro> lstLibro;
-    
+public class Libro implements Serializable {
     private String isbn;
     private String autor;
     private String titulo;
     private double precio;
     
-    public LibroManagedBean() {
-        this.lstLibro = new ArrayList<Libro>();
-    }
-    
-    public void agregarLibro() {
-        Libro lbr = new Libro(isbn, autor, titulo, precio);
-        this.lstLibro.add(lbr);
+    public Libro() {
+        
     }
 
-    public ArrayList<Libro> getLstLibro() {
-        return lstLibro;
-    }
-
-    public void setLstLibro(ArrayList<Libro> lstLibro) {
-        this.lstLibro = lstLibro;
+    public Libro(String isbn, String autor, String titulo, double precio) {
+        this.isbn = isbn;
+        this.autor = autor;
+        this.titulo = titulo;
+        this.precio = precio;
     }
 
     public String getIsbn() {

@@ -1,4 +1,4 @@
-package puntoCinco.aplicacion.modelo.dominio;
+package p5.aplicacion.modelo.dominio;
 
 import java.io.Serializable;
 

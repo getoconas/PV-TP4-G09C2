@@ -9,36 +9,66 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true" />
         <p:panel id="panel1" header="Libros">
             <h:form id="frmLibro">
                 <p:panelGrid id="ingLibro" columns="2">
-                    <p:outputLabel value="Ingrese ISBN" />
-                    <p:inputText value="#{libroBean.isbn}" />
-                    <p:outputLabel value="Seleccione Autor" />
-                    <p:selectOneMenu value="#{libroBean.autor}">
+                    <p:outputLabel for="txtISBN" value="Ingrese ISBN" />
+                    <p:inputText id="txtISBN" value="#{libroBean.isbn}" required="true" 
+                                 requiredMessage="Longitud de ISBN no permitido">
+                        <f:validateLength minimum="8" maximum="13" />
+                    </p:inputText>
+                    <p:outputLabel for="sctAutor" value="Seleccione Autor" />
+                    <p:selectOneMenu id="sctAutor" value="#{libroBean.autor}" required="true" >
                         <f:selectItem itemLabel="Jorge Luis Borges" itemValue="Jorge Luis Borges" />
                         <f:selectItem itemLabel="Gabriel García Márquez" itemValue="Gabriel García Márquez" />
                         <f:selectItem itemLabel="Isabel Allende" itemValue="Isabel Allende" />
                         <f:selectItem itemLabel="Mark Twain" itemValue="Mark Twain" />
                         <f:selectItem itemLabel="Franz Kafka" itemValue="Franz Kafka" />
                     </p:selectOneMenu>
-                    <p:outputLabel value="Ingrese Titulo" />
-                    <p:inputText value="#{libroBean.titulo}" />
-                    <p:outputLabel value="Ingrese Precio" />
-                    <p:inputNumber value="#{libroBean.precio}" decimalPlaces="2" />
+                    <p:outputLabel for="txtTitulo" value="Ingrese Titulo" />
+                    <p:inputText id="txtTitulo" value="#{libroBean.titulo}" required="true" 
+                                 requiredMessage="Longitud de titilo no permitido">
+                        <f:validateLength minimum="3" maximum="50" />
+                    </p:inputText>
+                    <p:outputLabel for="nmbPrecio" value="Ingrese Precio" />
+                    <p:inputNumber id="nmbPrecio" value="#{libroBean.precio}" decimalPlaces="2" 
+                                   required="true" >
+                        <f:validateDoubleRange minimum="0.01" />
+                    </p:inputNumber>
                 </p:panelGrid>
             
-                <p:commandButton id="btnAgregar" value="Agregar" action="#{libroBean.agregarLibro()}" update="tblLibro" />
-                <p:outputLabel></p:outputLabel>
-                
-                <p:outputLabel value="Buscar libro por autor" />
-                <p:inputText value="#{libroBean.autorBuscado}" />
-                <p:commandButton id="btnBuscar" value="Buscar" update="lblBusqueda" />
-                <p:outputLabel value="¿Existe libro del autor?" />
-                <p:outputLabel id="lblBusqueda" value="#{libroBean.buscarAutor()}" />
-                
+                <p:commandButton id="btnAgregar" value="Agregar" action="#{libroBean.agregarLibro()}" update="growl tblLibro" />
+                            
+                <h:panelGrid id="tblBusqueda" columns="3">
+                    <p:outputLabel id="lblTitulo" value="Autor"/>
+                    <p:inputText id="txtAutorBuscado" value="#{libroBean.autorBuscado}" />
+                    <p:commandButton id="btnBuscarAutor" value="Buscar"
+                                     actionListener="#{libroBean.buscarAutor()}"
+                                     update="bsqLibro"/>
+                </h:panelGrid>
+                <br />
+                <p:panelGrid id="bsqLibro" columns="1">
+                    <p:outputLabel id="bsqOutLibro" value="Listado de Busqueda" />
+                    <p:dataTable var="lbr" value="#{libroBean.auxiliarLibros}" >
+                        <p:column headerText="ISBN">
+                            <h:outputLabel value="#{lbr.isbn}" />
+                        </p:column>
+                        <p:column headerText="Autor">
+                            <h:outputLabel value="#{lbr.autor}" />
+                        </p:column>
+                        <p:column headerText="Titulo">
+                            <h:outputLabel value="#{lbr.titulo}" />
+                        </p:column>
+                        <p:column headerText="Precio">
+                            <h:outputLabel value="#{lbr.precio}" />
+                        </p:column>
+                    </p:dataTable>
+                </p:panelGrid>
+                <br />
                 <p:panelGrid id="tblLibro" columns="1">
-                    <p:dataTable var="lbr" value="#{libroBean.lstLibro}" >
+                    <p:outputLabel id="bsqLstLibro" value="Listado General" />
+                    <p:dataTable var="lbr" value="#{libroBean.libros}" >
                         <p:column headerText="ISBN">
                             <h:outputLabel value="#{lbr.isbn}" />
                         </p:column>
